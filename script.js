@@ -10,20 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const password = document.getElementById("password").value.trim();
 
     let isValid = true;
-    const messages = [
-      "Username too short❌",
-      "Invali email format❌",
-      "Password too short, minimum length must be 8 characters❌",
-    ];
+    const messages = [];
 
     if (username.length < 3) {
       isValid = false;
+      messages.push("Username too short❌");
     }
     if (!email.includes("@") || !email.includes(".")) {
       isValid = false;
+      messages.push("Invali email format❌");
     }
     if (password.length < 8) {
       isValid = false;
+      messages.push(
+        "Password too short, minimum length must be 8 characters❌"
+      );
     }
 
     feedbackDiv.style.display = "block";
